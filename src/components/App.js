@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "../styles/App.css";
 import imgs from "../image.jpeg";
 const App = () => {
-  const [height, setHeight] = useState("320px");
-  const [width, setWidth] = useState("320px");
-  
+  const [height, setHeight] = useState("320");
+  const [width, setWidth] = useState("320");
+
   function heightFun(e) {
     setHeight(e.target.value);
   }
@@ -14,7 +14,12 @@ const App = () => {
 
   return (
     <div id="main">
-      <img id="resizable-image" src={imgs} width={`${width}px`} height={`${height}px`} />
+      <img
+        id="resizable-image"
+        src={imgs}
+        width={`${width}px`}
+        height={`${height}px`}
+      />
       {/* <h1> {imgs} </h1> */}
 
       <input
