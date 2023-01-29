@@ -1,45 +1,26 @@
-import React, { useState } from "react";
-import "../styles/App.css";
-import imgs from "../image.jpeg";
+import React,{useState} from 'react'
+import '../styles/App.css';
+
 const App = () => {
-  const [height, setHeight] = useState("320");
-  const [width, setWidth] = useState("320");
+  const [height , setHeight]=useState(320);
+  const [width , setWidth]=useState(320);
 
-  function heightFun(e) {
-    setHeight(e.target.value);
+  const handleChange1=(event)=>{
+    setHeight(event.target.value)+"px"
   }
-  function widthFun(e) {
-    setWidth(e.target.value);
+  const handleChange2=(event)=>{
+    setWidth(event.target.value)+"px"
   }
-
   return (
     <div id="main">
-      <img
-        id="resizable-image"
-        src={imgs}
-        width={`${width}px`}
-        height={`${height}px`}
-      />
-      {/* <h1> {imgs} </h1> */}
-
-      <input
-        id="height-slider"
-        type="range"
-        value={height}
-        onChange={heightFun}
-        min={100}
-        max={800}
-      />
-      <input
-        id="width-slider"
-        type="range"
-        value={width}
-        onChange={widthFun}
-        min={100}
-        max={800}
-      />
+        <input type="range" min="100" max="800" value={height} id="height-slider" onChange={handleChange1}></input>
+        <div>{height}px</div>
+        <input type="range" min="100" max="800" value={width} id="width-slider" onChange={handleChange2}></input>
+        <div>{width}px</div>
+        <img id='resizable-img' src='../src/image.jpeg' height={height} width={width} alt="resizable-img"/>
     </div>
-  );
-};
+  )
+}
+
 
 export default App;
